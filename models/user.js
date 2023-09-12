@@ -17,8 +17,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Поле "avatar" должно быть заполнено'],
     validate: {
-      validator(v) {
-        return /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)$/.test(v);
+      validator(url) {
+        return /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)$/.test(url);
       },
       message: 'Ошибка URL',
     },
