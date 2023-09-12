@@ -4,7 +4,7 @@ const {
   CastError,
   DocumentNotFoundError,
   ServerError,
-} = require('../utils/constants');
+} = require('../errors/constants');
 const User = require('../models/user');
 
 module.exports.getUsers = (req, res) => {

@@ -4,7 +4,7 @@ const {
   CastError,
   DocumentNotFoundError,
   ServerError,
-} = require('../utils/constants');
+} = require('../errors/constants');
 
 module.exports.addCard = (req, res) => {
   const { name, link } = req.body;
@@ -46,7 +46,7 @@ module.exports.deleteCard = (req, res) => {
 
 module.exports.likeCard = (req, res) => {
   Card.findByIdAndUpdate(
-    req.params._id,
+    req.params.cardId,
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
@@ -67,7 +67,7 @@ module.exports.likeCard = (req, res) => {
 
 module.exports.dislikeCard = (req, res) => {
   Card.findByIdAndUpdate(
-    req.params._id,
+    req.params.cardId,
     { $pull: { likes: req.user._id } },
     { new: true },
   )
