@@ -1,13 +1,13 @@
-const NoError = 200;
-const Created = 201;
-const CastError = 400;
-const DocumentNotFoundError = 404;
-const ServerError = 500;
+const NO_ERROR = 200;
+const CREATED = 201;
+const CAST_ERROR = 400;
+const NOT_FOUND_CODE = 404;
+const SERVER_ERROR = 500;
 
 module.exports = {
-  NoError,
-  Created,
-  CastError,
-  DocumentNotFoundError,
-  ServerError,
+  NO_ERROR,
+  CREATED,
+  CAST_ERROR,
+  NOT_FOUND_CODE,
+  SERVER_ERROR,
 };
