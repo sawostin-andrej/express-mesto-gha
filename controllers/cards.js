@@ -34,9 +34,9 @@ module.exports.deleteCard = (req, res) => {
       res.send(card);
     })
     .catch((err) => {
-      if (err instanceof mongoose.Error.CAST_ERROR) {
+      if (err instanceof mongoose.Error.CastError) {
         res.status(CAST_ERROR).send({ message: 'Переданы некорректные данные' });
-      } else if (err instanceof mongoose.Error.NOT_FOUND_CODE) {
+      } else if (err instanceof mongoose.Error.DocumentNotFoundError) {
         res.status(NOT_FOUND_CODE).send({ message: 'Карточка не найдена' });
       } else {
         res.status(SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
@@ -53,9 +53,9 @@ module.exports.likeCard = (req, res) => {
     .orFail()
     .then((likes) => res.send({ data: likes }))
     .catch((err) => {
-      if (err instanceof mongoose.Error.CAST_ERROR) {
+      if (err instanceof mongoose.Error.CastError) {
         res.status(CAST_ERROR).send({ message: 'Переданы некорректные данные' });
-      } else if (err instanceof mongoose.Error.NOT_FOUND_CODE) {
+      } else if (err instanceof mongoose.Error.DocumentNotFoundError) {
         res.status(NOT_FOUND_CODE).send({ message: 'Карточка не найдена' });
       } else {
         res.status(SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
@@ -72,9 +72,9 @@ module.exports.dislikeCard = (req, res) => {
     .orFail()
     .then((likes) => res.send({ data: likes }))
     .catch((err) => {
-      if (err instanceof mongoose.Error.CAST_ERROR) {
+      if (err instanceof mongoose.Error.CastError) {
         res.status(CAST_ERROR).send({ message: 'Переданы некорректные данные' });
-      } else if (err instanceof mongoose.Error.NOT_FOUND_CODE) {
+      } else if (err instanceof mongoose.Error.DocumentNotFoundError) {
         res.status(NOT_FOUND_CODE).send({ message: 'Карточка не найдена' });
       } else {
         res.status(SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
